@@ -26,11 +26,11 @@ while len(guessed_state) < 50:  # Changed to '<' to properly count states
         t.write(state_data.state.item())
         guessed_state.append(answer_state)
 
-missed_states = []
-
-for state in data.state:
-    if state not in guessed_state:
-        missed_states.append(state)
+missed_states = [missed_state for missed_state in data.state if missed_state not in guessed_state]
+#
+# for state in data.state:
+#     if state not in guessed_state:
+#         missed_states.append(state)
 
 missed_states_dic = {
     "state": missed_states
